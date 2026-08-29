@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Before proposing medical functionality, read the clinical-safety
-        section of [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md). Changes
+        section of [CONTRIBUTING.md](../blob/HEAD/CONTRIBUTING.md). Changes
         that move toward diagnosis or triage will be declined.
   - type: textarea
     id: problem

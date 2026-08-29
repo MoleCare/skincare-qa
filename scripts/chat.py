@@ -20,7 +20,12 @@ from harness.skincare import SkincareGuard  # noqa: E402
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Ask one model through its harness. "
+            "Pass the model name, then the prompt. Optional --red-flag may repeat."
+        )
+    )
     parser.add_argument("model", choices=sorted(SPECS))
     parser.add_argument("prompt")
     parser.add_argument("--red-flag", action="append", default=[])

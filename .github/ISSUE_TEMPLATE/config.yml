@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Security vulnerability
-    url: https://github.com/MoleCare/skincare-qa/blob/main/SECURITY.md
+    url: https://github.com/MoleCare/skincare-qa/blob/HEAD/SECURITY.md
     about: Do not file publicly — email info@molecare.co.uk
   - name: Medical question about a mole or skin change
     url: https://www.nhs.uk/conditions/melanoma-skin-cancer/
