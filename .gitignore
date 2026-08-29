@@ -10,5 +10,6 @@ fused/
 wandb/
 .env
 .env.*
+!.env.example
 hf_token
 *.pem

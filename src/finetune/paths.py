@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,20 +11,16 @@ ADAPTERS_ROOT = PROJECT_ROOT / "adapters"
 FUSED_ROOT = PROJECT_ROOT / "fused"
 CONFIGS_ROOT = PROJECT_ROOT / "configs"
 
-MOLECARE_ROOT = Path.home() / "DevBox" / "molecare"
+
+def _environment_path(name: str, default: Path) -> Path:
+    value = os.environ.get(name)
+    return Path(value).expanduser() if value else default
+
+
+MOLECARE_ROOT = _environment_path("MOLECARE_ROOT", PROJECT_ROOT.parent)
 MCP_KB = MOLECARE_ROOT / "molecare-mcp" / "src" / "resources" / "medical-kb.ts"
 WEBAPP_I18N = MOLECARE_ROOT / "molecare-webapp" / "public" / "locales" / "en" / "translation.json"
-HARNESS_PYTHON = MOLECARE_ROOT / "skin-care-harness" / "packages" / "python"
-CLAUDE_CHAT = (
-    MOLECARE_ROOT
-    / "molecare-server"
-    / "src"
-    / "main"
-    / "java"
-    / "com"
-    / "twoay"
-    / "molecare"
-    / "chat"
-    / "service"
-    / "ClaudeChatService.java"
+HARNESS_PYTHON = _environment_path(
+    "SKIN_CARE_HARNESS_PYTHON",
+    MOLECARE_ROOT / "skin-care-harness" / "packages" / "python",
 )

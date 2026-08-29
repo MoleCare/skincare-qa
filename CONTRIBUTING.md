@@ -30,7 +30,7 @@ New skincare training rows must pass MoleCare `skin-care-harness`
 
 ```bash
 git clone https://github.com/MoleCare/skincare-qa.git   # or this workbench path
-cd llm-finetunes   # if cloned from the workbench
+cd skincare-qa
 python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt   # MLX train — macOS Apple Silicon
@@ -43,8 +43,8 @@ to run the harness tests. Training downloads public 4-bit bases from
 `mlx-community/*`.
 
 `skin-care-harness` tests skip if that checkout is missing. Clone it next to
-this repo at `~/DevBox/molecare/skin-care-harness` (or set the path in
-`src/finetune/paths.py`).
+this repository, or set `MOLECARE_ROOT` / `SKIN_CARE_HARNESS_PYTHON` in your
+environment. See `.env.example` for the optional local settings.
 
 ## What you may add
 
