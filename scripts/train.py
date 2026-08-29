@@ -17,7 +17,12 @@ CONFIGS = {
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Run mlx_lm.lora for python-vibe or skincare-qa. "
+            "Defaults stay as they are; --iters and --resume are optional."
+        )
+    )
     parser.add_argument("model", choices=sorted(CONFIGS))
     parser.add_argument("--iters", type=int, default=None)
     parser.add_argument(

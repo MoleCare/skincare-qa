@@ -9,6 +9,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -43,7 +44,10 @@ def _routes():
     }
 
 
-ROUTES = _routes()
+# Filled in main() after argparse. Building routes at import constructs
+# SkincareGuard, which needs skin-care-harness — CI does not have that,
+# and --help must still work.
+ROUTES: dict = {}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -117,10 +121,28 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    host = "0.0.0.0"
-    port = 8080
-    if len(sys.argv) > 1:
-        port = int(sys.argv[1])
+    parser = argparse.ArgumentParser(
+        description=(
+            "HTTP sidecar. Default bind is 0.0.0.0:8080. "
+            "A port number as the first argument still works."
+        )
+    )
+    parser.add_argument(
+        "port",
+        nargs="?",
+        type=int,
+        default=8080,
+        help="TCP port (default: 8080)",
+    )
+    parser.add_argument(
+        "--host",
+        default="0.0.0.0",
+        help="bind address (default: 0.0.0.0)",
+    )
+    args = parser.parse_args()
+    host, port = args.host, args.port
+    ROUTES.clear()
+    ROUTES.update(_routes())
     server = ThreadingHTTPServer((host, port), Handler)
     print(f"harness listening on http://{host}:{port}", flush=True)
     server.serve_forever()

@@ -35,12 +35,15 @@ Same pattern as [skin-care-harness example 02](https://github.com/MoleCare/skin-
 | `/v1/skincare-qa` | MoleCare `SkinGuard` (no diagnosis, no "that's benign") | regenerate once, then the MoleCare safe fallback |
 | `/v1/python-vibe` | empty, leaked keys, `curl\|sh`, lesion diagnosis (wrong surface) | regenerate once, then a short refusal |
 
-Skincare rules are **not** copied. They load from `~/DevBox/molecare/skin-care-harness/packages/python`.
+Skincare rules are **not** copied. They load from a sibling
+`skin-care-harness` checkout (`packages/python`), or from
+`SKIN_CARE_HARNESS_PYTHON` / `MOLECARE_ROOT`.
 
 ## Train (Mac / MLX 3.13)
 
 ```bash
-cd ~/DevBox/molecare/skincare-qa
+git clone https://github.com/MoleCare/skincare-qa.git
+cd skincare-qa
 /opt/homebrew/bin/python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
