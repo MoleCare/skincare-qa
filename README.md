@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](./LICENSE)
 [![CI](https://github.com/MoleCare/skincare-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/MoleCare/skincare-qa/actions/workflows/ci.yml)
+[![Contributors](https://img.shields.io/github/contributors/MoleCare/skincare-qa)](https://github.com/MoleCare/skincare-qa#contributors)
 
 **Not a medical device.** Public repos:
 [MoleCare/skincare-qa](https://github.com/MoleCare/skincare-qa) ·
@@ -112,3 +113,28 @@ PYTHONPATH=src python scripts/pull_hf.py skincare-qa
 Repos are **private** unless you pass `--public`. The model card is written
 from `cards/`. Adapters (small) use `--what adapters`; fused MLX weights are
 the large folder.
+
+## Contributors
+
+Thank you to everyone who has helped skincare-qa.
+
+<!-- readme: contributors,bots/- -start -->
+<table>
+	<tbody>
+		<tr>
+			<td align="center">
+				<a href="https://github.com/YauhenBichel">
+					<img src="https://avatars.githubusercontent.com/YauhenBichel?s=48" width="48" alt="Yauhen Bichel" />
+					<br />
+					<sub><b>Yauhen Bichel</b></sub>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<!-- readme: contributors,bots/- -end -->
+
+The list is filled by [Contributors](./.github/workflows/contributors.yml) from
+GitHub commits, bots omitted — never hand-maintained, because a stale list is
+worse than none. [Contributor graph](https://github.com/MoleCare/skincare-qa/graphs/contributors) ·
+[good first issue](https://github.com/MoleCare/skincare-qa/labels/good%20first%20issue)
