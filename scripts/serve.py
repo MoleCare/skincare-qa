@@ -44,7 +44,10 @@ def _routes():
     }
 
 
-ROUTES = _routes()
+# Filled in main() after argparse. Building routes at import constructs
+# SkincareGuard, which needs skin-care-harness — CI does not have that,
+# and --help must still work.
+ROUTES: dict = {}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -138,6 +141,8 @@ def main() -> None:
     )
     args = parser.parse_args()
     host, port = args.host, args.port
+    ROUTES.clear()
+    ROUTES.update(_routes())
     server = ThreadingHTTPServer((host, port), Handler)
     print(f"harness listening on http://{host}:{port}", flush=True)
     server.serve_forever()
