@@ -1,0 +1,14 @@
+skincare-qa / python-vibe
+Copyright 2026 MoleCare LTD
+
+This product includes educational dermatology text derived from
+MoleCare/molecare-mcp (Apache-2.0).
+
+Skincare answers are reviewed with MoleCare/skin-care-harness (Apache-2.0).
+
+Base model weights are not distributed in this repository:
+
+- Qwen2.5-Coder-0.5B-Instruct — Apache-2.0, Qwen / Alibaba
+- Llama-3.2-1B-Instruct — Llama 3.2 Community License, Meta
+
+Not a medical device. Not for diagnosis or treatment.

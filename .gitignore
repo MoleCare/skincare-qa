@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/_card_test/
+adapters/
+fused/
+*.safetensors
+.mlx_cache/
+wandb/
+.env
+.env.*
+hf_token
+*.pem

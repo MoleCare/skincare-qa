@@ -1,0 +1,45 @@
+name: Feature request
+description: Propose a harness rule, training pair, or serve change
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before proposing medical functionality, read the clinical-safety
+        section of [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md). Changes
+        that move toward diagnosis or triage will be declined.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What can't you do today?
+      description: Describe the gap, not the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you add?
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Educational skincare Q&A data
+        - Python-vibe examples
+        - Harness rule
+        - Serve / export / Hugging Face
+        - Docs / CI
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: This does not produce, imply, or imitate a diagnosis or triage decision
+          required: true
+        - label: This does not add patient photos or secrets
+          required: true

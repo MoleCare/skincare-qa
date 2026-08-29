@@ -1,0 +1,49 @@
+name: Bug report
+description: Something in training, the harness, or serve.py does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Do not attach real skin photos or patient data.**
+        If this is a security vulnerability, email info@molecare.co.uk instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. python -m unittest discover -s tests -q
+        2. PYTHONPATH=src python scripts/chat.py skincare-qa "..."
+        3. See error
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface?
+      options:
+        - skincare-qa
+        - python-vibe
+        - harness / serve.py
+        - training / data build
+        - docs
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.13.2"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Redact any keys, hostnames, or user identifiers.
+      render: shell
