@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 import unittest
@@ -38,6 +39,21 @@ class ScriptsHelpTest(unittest.TestCase):
         text = _help("chat.py")
         self.assertIn("prompt", text)
         self.assertIn("--red-flag", text)
+
+    def test_serve_help_without_a_home_harness(self) -> None:
+        """CI has no skin-care-harness under $HOME. --help must still print."""
+        env = os.environ.copy()
+        env["HOME"] = "/tmp/no-home-for-ci"
+        proc = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "serve.py"), "--help"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            env=env,
+        )
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertIn("8080", proc.stdout)
 
 
 if __name__ == "__main__":
