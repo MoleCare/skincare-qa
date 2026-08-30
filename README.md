@@ -27,7 +27,14 @@ client → harness :8080 → ollama (0.5B / 1B)
      block twice → fixed fallback
 ```
 
-Same pattern as [skin-care-harness example 02](https://github.com/MoleCare/skin-care-harness): the model drafts, the harness decides whether that draft ships. The harness is not a second model.
+Same pattern as MoleCare's `skin-care-harness`: the model drafts, the harness decides
+whether that draft ships. The harness is not a second model.
+
+> **`skin-care-harness` is currently a private repository.** If you are outside MoleCare
+> you cannot clone it, and the skincare rules below will not load. What that means in
+> practice is set out in [Running without the harness](#running-without-the-harness).
+> Making it public, or removing the dependency, is tracked in
+> [#19](https://github.com/MoleCare/skincare-qa/issues/19).
 
 ## Harnesses
 
@@ -36,9 +43,22 @@ Same pattern as [skin-care-harness example 02](https://github.com/MoleCare/skin-
 | `/v1/skincare-qa` | MoleCare `SkinGuard` (no diagnosis, no "that's benign") | regenerate once, then the MoleCare safe fallback |
 | `/v1/python-vibe` | empty, leaked keys, `curl\|sh`, lesion diagnosis (wrong surface) | regenerate once, then a short refusal |
 
-Skincare rules are **not** copied. They load from a sibling
+Skincare rules are **not** copied into this repository. They load from a sibling
 `skin-care-harness` checkout (`packages/python`), or from
 `SKIN_CARE_HARNESS_PYTHON` / `MOLECARE_ROOT`.
+
+### Running without the harness
+
+Without that checkout, `SkinGuard` cannot load, and the tests that exercise it
+**skip rather than fail**. Everything else still runs: the `python-vibe` harness
+tests, the data loaders, and training.
+
+Be aware of what a green run means in that case. A skipped safety test is not a
+passing safety test, and this repository's central claim is that the harness stops
+the model shipping a diagnosis. Treat a green CI badge here as covering everything
+*except* the part that matters most, until
+[#19](https://github.com/MoleCare/skincare-qa/issues/19) and
+[#10](https://github.com/MoleCare/skincare-qa/issues/10) are resolved.
 
 ## Train (Mac / MLX 3.13)
 

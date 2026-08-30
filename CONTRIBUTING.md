@@ -23,6 +23,11 @@ Same table as [molecare-mcp](https://github.com/MoleCare/molecare-mcp):
 New skincare training rows must pass MoleCare `skin-care-harness`
 (`PYTHONPATH=src python scripts/build_data.py` fails on a `block`).
 
+`skin-care-harness` is currently **private**, so if you are outside MoleCare you
+cannot run that check yourself. Open the pull request anyway — a maintainer will
+run it for you and paste the result. Please say in the PR that you could not run
+it, so nobody assumes it passed.
+
 `python-vibe` is not a health model. Do not teach it to comment on lesions
 (the python harness already blocks that).
 
@@ -42,9 +47,23 @@ You do **not** need a Hugging Face token, Ollama, AWS, or a MoleCare API key
 to run the harness tests. Training downloads public 4-bit bases from
 `mlx-community/*`.
 
-`skin-care-harness` tests skip if that checkout is missing. Clone it next to
-this repository, or set `MOLECARE_ROOT` / `SKIN_CARE_HARNESS_PYTHON` in your
-environment. See `.env.example` for the optional local settings.
+### About the skincare harness tests
+
+`skin-care-harness` is a **private** MoleCare repository. Cloning it will 404 for
+external contributors, and the docs previously told you to clone it anyway — sorry.
+Tracked in [#19](https://github.com/MoleCare/skincare-qa/issues/19).
+
+Those tests **skip** when the checkout is missing, so `python -m unittest discover`
+goes green without them. That is worth knowing before you trust a green run: the
+`SkinGuard` tests are the ones covering the claim that the model cannot ship a
+diagnosis, and they are exactly the ones that skip. See
+[#10](https://github.com/MoleCare/skincare-qa/issues/10).
+
+What you *can* run without it: the `python-vibe` harness tests, the data loaders,
+and training. That is most of the repository.
+
+If you are inside MoleCare, clone the harness next to this repository or set
+`MOLECARE_ROOT` / `SKIN_CARE_HARNESS_PYTHON`. See `.env.example`.
 
 ## What you may add
 
