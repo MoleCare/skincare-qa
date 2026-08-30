@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run mlx_lm.lora for python-vibe or skincare-qa."""
+"""Run mlx_lm.lora for skincare-qa."""
 
 from __future__ import annotations
 
@@ -11,7 +11,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIGS = {
-    "python-vibe": ROOT / "configs" / "python-vibe.yaml",
     "skincare-qa": ROOT / "configs" / "skincare-qa.yaml",
 }
 
@@ -19,7 +18,7 @@ CONFIGS = {
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Run mlx_lm.lora for python-vibe or skincare-qa. "
+            "Run mlx_lm.lora for skincare-qa. "
             "Defaults stay as they are; --iters and --resume are optional."
         )
     )

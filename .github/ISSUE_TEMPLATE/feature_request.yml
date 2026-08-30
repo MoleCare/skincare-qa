@@ -27,7 +27,6 @@ body:
       label: Category
       options:
         - Educational skincare Q&A data
-        - Python-vibe examples
         - Harness rule
         - Serve / export / Hugging Face
         - Docs / CI

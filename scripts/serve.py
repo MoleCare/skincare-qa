@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Tiny HTTP sidecar: Ollama generates, the matching harness decides.
+"""Tiny HTTP sidecar: Ollama generates, the skincare harness decides.
 
   PYTHONPATH=src python scripts/serve.py
   curl -s localhost:8080/health
   curl -s localhost:8080/v1/skincare-qa -d '{"prompt":"what is ABCDE?"}' -H 'content-type: application/json'
-  curl -s localhost:8080/v1/python-vibe -d '{"prompt":"jsonl reader"}' -H 'content-type: application/json'
 """
 
 from __future__ import annotations
@@ -20,22 +19,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from finetune.models import SPECS  # noqa: E402
-from harness.fallbacks import PYTHON_VIBE_FALLBACK, SKINCARE_FALLBACK  # noqa: E402
+from harness.fallbacks import SKINCARE_FALLBACK  # noqa: E402
 from harness.ollama_generate import OllamaGenerate  # noqa: E402
-from harness.python_vibe import PythonVibeGuard  # noqa: E402
 from harness.run import complete  # noqa: E402
 from harness.skincare import SkincareGuard  # noqa: E402
 
 
 def _routes():
-    py = SPECS["python-vibe"]
     skin = SPECS["skincare-qa"]
     return {
-        "/v1/python-vibe": (
-            OllamaGenerate(py.ollama_base, py.system),
-            PythonVibeGuard(),
-            PYTHON_VIBE_FALLBACK,
-        ),
         "/v1/skincare-qa": (
             OllamaGenerate(skin.ollama_base, skin.system),
             SkincareGuard(),
@@ -69,7 +61,6 @@ class Handler(BaseHTTPRequestHandler):
         backends = {
             name: generate.healthy()
             for name, (generate, _, _) in (
-                ("python-vibe", ROUTES["/v1/python-vibe"]),
                 ("skincare-qa", ROUTES["/v1/skincare-qa"]),
             )
         }

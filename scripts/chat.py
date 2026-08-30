@@ -12,9 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from finetune.models import SPECS  # noqa: E402
-from harness.fallbacks import PYTHON_VIBE_FALLBACK, SKINCARE_FALLBACK  # noqa: E402
+from harness.fallbacks import SKINCARE_FALLBACK  # noqa: E402
 from harness.ollama_generate import OllamaGenerate  # noqa: E402
-from harness.python_vibe import PythonVibeGuard  # noqa: E402
 from harness.run import complete  # noqa: E402
 from harness.skincare import SkincareGuard  # noqa: E402
 
@@ -32,12 +31,8 @@ def main() -> None:
     args = parser.parse_args()
     spec = SPECS[args.model]
 
-    if args.model == "skincare-qa":
-        guard: object = SkincareGuard()
-        fallback = SKINCARE_FALLBACK
-    else:
-        guard = PythonVibeGuard()
-        fallback = PYTHON_VIBE_FALLBACK
+    guard: object = SkincareGuard()
+    fallback = SKINCARE_FALLBACK
 
     generate = OllamaGenerate(spec.ollama_base, spec.system)
     outcome = complete(
