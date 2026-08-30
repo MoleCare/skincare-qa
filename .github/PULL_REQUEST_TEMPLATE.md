@@ -13,4 +13,3 @@
 - [ ] No secrets, real hostnames, or personal data
 - [ ] No patient images — including in tests
 - [ ] New medical answers stay educational (no diagnosis / no "that's benign")
-- [ ] New python-vibe examples do not include `curl|sh` or live keys

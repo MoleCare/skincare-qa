@@ -30,7 +30,6 @@ body:
       label: Which surface?
       options:
         - skincare-qa
-        - python-vibe
         - harness / serve.py
         - training / data build
         - docs
