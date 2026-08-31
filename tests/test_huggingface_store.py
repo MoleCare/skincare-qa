@@ -11,7 +11,6 @@ from finetune.models import HF_USER, SPECS
 class HuggingFaceStoreTest(unittest.TestCase):
     def test_repos_live_under_yauhenbichel(self) -> None:
         self.assertEqual(HF_USER, "YauhenBichel")
-        self.assertEqual(SPECS["python-vibe"].hf_repo, "YauhenBichel/python-vibe-0.5b")
         self.assertEqual(SPECS["skincare-qa"].hf_repo, "YauhenBichel/skincare-qa-1b")
 
     def test_write_card(self) -> None:

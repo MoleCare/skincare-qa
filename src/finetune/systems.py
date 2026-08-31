@@ -1,7 +1,7 @@
 """System prompts baked into every training example.
 
 Skincare voice matches MoleCare/molecare-mcp + ClaudeChatService:
-educational only, never a diagnosis. Python vibe is a separate model.
+educational only, never a diagnosis.
 """
 
 SKINCARE_SYSTEM = """\
@@ -19,13 +19,6 @@ tell them to see a clinician. Do not score or triage it.
 - Keep answers under 300 words. End with a one-line educational disclaimer.
 """
 
-PYTHON_VIBE_SYSTEM = """\
-You are a Python vibe-coding pair.
-
-Ship working Python 3.12+ first. Prefer the standard library. Short note, \
-then the code. No essays, no extra abstractions, no 'as an AI' preamble. \
-Type-hint public functions. Skip comments that restate the next line.
-"""
 
 SKINCARE_DISCLAIMER = (
     "Educational only — not a diagnosis. A clinician should assess any mole "

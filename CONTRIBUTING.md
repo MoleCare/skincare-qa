@@ -28,9 +28,6 @@ cannot run that check yourself. Open the pull request anyway — a maintainer wi
 run it for you and paste the result. Please say in the PR that you could not run
 it, so nobody assumes it passed.
 
-`python-vibe` is not a health model. Do not teach it to comment on lesions
-(the python harness already blocks that).
-
 ## Getting set up (no cloud, no secrets)
 
 ```bash
@@ -59,8 +56,8 @@ goes green without them. That is worth knowing before you trust a green run: the
 diagnosis, and they are exactly the ones that skip. See
 [#10](https://github.com/MoleCare/skincare-qa/issues/10).
 
-What you *can* run without it: the `python-vibe` harness tests, the data loaders,
-and training. That is most of the repository.
+What you *can* run without it: the data loaders and training. That is most of
+the repository.
 
 If you are inside MoleCare, clone the harness next to this repository or set
 `MOLECARE_ROOT` / `SKIN_CARE_HARNESS_PYTHON`. See `.env.example`.
