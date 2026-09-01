@@ -140,6 +140,13 @@ Thank you to everyone who has helped skincare-qa.
 					<sub><b>Yauhen Bichel</b></sub>
 				</a>
 			</td>
+			<td align="center">
+				<a href="https://github.com/xianjianlf2">
+					<img src="https://avatars.githubusercontent.com/xianjianlf2?s=48" width="48" alt="Mark Xian" />
+					<br />
+					<sub><b>Mark Xian</b></sub>
+				</a>
+			</td>
 		</tr>
 	</tbody>
 </table>
