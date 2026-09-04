@@ -378,6 +378,82 @@ def pairs_everyday_skincare() -> list[tuple[str, str]]:
                 "also the most useful melanoma-prevention step in a routine."
             ),
         ),
+        (
+            "When should I see a doctor about my mole?",
+            _close(
+                "You should see a clinician if a mole is changing size, shape, or colour, if it bleeds, "
+                "itches, or is newly painful. A new mole after age 30 or one that looks very different "
+                "from your other moles is also a reason to get checked."
+            ),
+        ),
+        (
+            "What kind of sunscreen should I use on my children?",
+            _close(
+                "For children, a broad-spectrum SPF 30 or higher is recommended. Mineral sunscreens "
+                "with zinc oxide or titanium dioxide are often preferred for kids as they can be "
+                "gentler on sensitive skin. Keep infants under six months out of direct sun."
+            ),
+        ),
+        (
+            "Do people with darker skin need to wear sunscreen?",
+            _close(
+                "Yes, everyone needs sun protection. While darker skin has more melanin, UV rays still "
+                "cause damage, and skin cancer can affect anyone. Daily use of broad-spectrum SPF 30+ "
+                "helps protect all skin types."
+            ),
+        ),
+        (
+            "Is sunscreen necessary on cloudy or rainy days?",
+            _close(
+                "Yes, up to 80 percent of the sun's UV rays can pass through clouds. Daily SPF 30+ is "
+                "recommended regardless of the weather to protect against cumulative skin damage."
+            ),
+        ),
+        (
+            "Can I use adult sunscreen on a toddler?",
+            _close(
+                "Adult sunscreens are often safe, but mineral formulas are usually recommended for toddlers "
+                "to minimize the chance of stinging or skin irritation. Always apply it generously and "
+                "reapply often when they are outside."
+            ),
+        ),
+        (
+            "How often do I really need to reapply sunscreen?",
+            _close(
+                "Reapply sunscreen every two hours when outdoors, and immediately after swimming or heavy "
+                "sweating. Even water-resistant sunscreens wear off over time."
+            ),
+        ),
+        (
+            "My child got a sunburn, what should I do?",
+            _close(
+                "Keep them out of the sun, offer cool baths, and apply a gentle moisturizer or aloe. Offer "
+                "plenty of water. If the burn blisters or they develop a fever, contact a clinician."
+            ),
+        ),
+        (
+            "What are the signs of skin cancer on dark skin?",
+            _close(
+                "Skin cancer on darker skin often appears in less sun-exposed areas like the palms of hands, "
+                "soles of feet, inside the mouth, or under nails. Look for new, changing, or unusual marks "
+                "and have a clinician check them."
+            ),
+        ),
+        (
+            "Does a high SPF mean I don't need to reapply?",
+            _close(
+                "No, high SPF sunscreens block slightly more UVB rays, but they still wear off, rub off, "
+                "or wash off at the same rate. All sunscreens need to be reapplied about every two hours."
+            ),
+        ),
+        (
+            "How can I protect my baby from the sun?",
+            _close(
+                "For babies under six months, the best protection is shade, wide-brimmed hats, and lightweight "
+                "clothing covering the arms and legs. Sunscreen can be used on small exposed areas like the face "
+                "if shade is unavailable, but minimizing direct exposure is best."
+            ),
+        ),
     ]
 
 
