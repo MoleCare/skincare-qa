@@ -83,7 +83,7 @@ ollama pull llama3.2:1b
 ```
 
 ```bash
-PYTHONPATH=src python scripts/serve.py          # :8080
+PYTHONPATH=src python scripts/serve.py          # 127.0.0.1:8080
 PYTHONPATH=src python -m unittest discover -s tests -q
 ```
 

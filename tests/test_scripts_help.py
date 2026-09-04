@@ -28,7 +28,11 @@ class ScriptsHelpTest(unittest.TestCase):
     def test_serve_help_names_host_and_port(self) -> None:
         text = _help("serve.py")
         self.assertIn("8080", text)
-        self.assertIn("0.0.0.0", text)
+        # The default bind must stay loopback. This server has no
+        # authentication, so a 0.0.0.0 default would expose it to the network
+        # for anyone following the README on a cloud VM.
+        self.assertIn("127.0.0.1", text)
+        self.assertNotIn("default: 0.0.0.0", text)
 
     def test_train_help(self) -> None:
         text = _help("train.py")
