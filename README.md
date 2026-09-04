@@ -141,6 +141,13 @@ Thank you to everyone who has helped molecare-skin-llm.
 				</a>
 			</td>
 			<td align="center">
+				<a href="https://github.com/agnish-dev">
+					<img src="https://avatars.githubusercontent.com/agnish-dev?s=48" width="48" alt="GRAVITY" />
+					<br />
+					<sub><b>GRAVITY</b></sub>
+				</a>
+			</td>
+			<td align="center">
 				<a href="https://github.com/xianjianlf2">
 					<img src="https://avatars.githubusercontent.com/xianjianlf2?s=48" width="48" alt="Mark Xian" />
 					<br />
