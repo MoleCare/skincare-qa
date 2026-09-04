@@ -395,14 +395,6 @@ def pairs_everyday_skincare() -> list[tuple[str, str]]:
             ),
         ),
         (
-            "Do people with darker skin need to wear sunscreen?",
-            _close(
-                "Yes, everyone needs sun protection. While darker skin has more melanin, UV rays still "
-                "cause damage, and skin cancer can affect anyone. Daily use of broad-spectrum SPF 30+ "
-                "helps protect all skin types."
-            ),
-        ),
-        (
             "Is sunscreen necessary on cloudy or rainy days?",
             _close(
                 "Yes, up to 80 percent of the sun's UV rays can pass through clouds. Daily SPF 30+ is "
