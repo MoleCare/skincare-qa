@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -39,6 +40,8 @@ def _routes():
 # Filled in main() after argparse. Building routes at import constructs
 # SkincareGuard, which needs skin-care-harness — CI does not have that,
 # and --help must still work.
+MAX_BODY_BYTES = 64 * 1024
+
 ROUTES: dict = {}
 
 
@@ -80,6 +83,12 @@ class Handler(BaseHTTPRequestHandler):
             self._json(404, {"error": "not found"})
             return
         length = int(self.headers.get("Content-Length") or "0")
+        if length > MAX_BODY_BYTES:
+            # Refuse before reading. Content-Length is attacker-controlled, so
+            # rfile.read(length) on an unchecked value is an allocation the
+            # client chooses the size of.
+            self._json(413, {"error": "request body too large"})
+            return
         try:
             body = json.loads(self.rfile.read(length) or b"{}")
         except json.JSONDecodeError:
@@ -114,7 +123,8 @@ class Handler(BaseHTTPRequestHandler):
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "HTTP sidecar. Default bind is 0.0.0.0:8080. "
+            "HTTP sidecar. Binds 127.0.0.1:8080 by default -- this server has "
+            "no authentication, so exposing it needs a deliberate --host. "
             "A port number as the first argument still works."
         )
     )
@@ -127,8 +137,8 @@ def main() -> None:
     )
     parser.add_argument(
         "--host",
-        default="0.0.0.0",
-        help="bind address (default: 0.0.0.0)",
+        default=os.environ.get("HARNESS_HOST", "127.0.0.1"),
+        help="bind address (default: 127.0.0.1, or $HARNESS_HOST)",
     )
     args = parser.parse_args()
     host, port = args.host, args.port
