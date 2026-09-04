@@ -1,8 +1,8 @@
-# skincare-qa — a small LoRA model behind a safety harness
+# molecare-skin-llm — a small LoRA model behind a safety harness
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](./LICENSE)
-[![CI](https://github.com/MoleCare/skincare-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/MoleCare/skincare-qa/actions/workflows/ci.yml)
-[![Contributors](https://img.shields.io/github/contributors/MoleCare/skincare-qa)](https://github.com/MoleCare/skincare-qa#contributors)
+[![CI](https://github.com/MoleCare/molecare-skin-llm/actions/workflows/ci.yml/badge.svg)](https://github.com/MoleCare/molecare-skin-llm/actions/workflows/ci.yml)
+[![Contributors](https://img.shields.io/github/contributors/MoleCare/molecare-skin-llm)](https://github.com/MoleCare/molecare-skin-llm#contributors)
 
 **Not a medical device.**
 
@@ -35,7 +35,7 @@ whether that draft ships. The harness is not a second model.
 > you cannot clone it, and the skincare rules below will not load. What that means in
 > practice is set out in [Running without the harness](#running-without-the-harness).
 > Making it public, or removing the dependency, is tracked in
-> [#19](https://github.com/MoleCare/skincare-qa/issues/19).
+> [#19](https://github.com/MoleCare/molecare-skin-llm/issues/19).
 
 ## Harnesses
 
@@ -56,14 +56,14 @@ Be aware of what a green run means in that case. A skipped safety test is not a
 passing safety test, and this repository's central claim is that the harness stops
 the model shipping a diagnosis. Treat a green CI badge here as covering everything
 *except* the part that matters most, until
-[#19](https://github.com/MoleCare/skincare-qa/issues/19) and
-[#10](https://github.com/MoleCare/skincare-qa/issues/10) are resolved.
+[#19](https://github.com/MoleCare/molecare-skin-llm/issues/19) and
+[#10](https://github.com/MoleCare/molecare-skin-llm/issues/10) are resolved.
 
 ## Train (Mac / MLX 3.13)
 
 ```bash
-git clone https://github.com/MoleCare/skincare-qa.git
-cd skincare-qa
+git clone https://github.com/MoleCare/molecare-skin-llm.git
+cd molecare-skin-llm
 /opt/homebrew/bin/python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -71,7 +71,7 @@ PYTHONPATH=src python scripts/build_data.py
 PYTHONPATH=src python scripts/train.py skincare-qa
 ```
 
-Data for `skincare-qa` still comes from [molecare-mcp](https://github.com/MoleCare/molecare-mcp) + [molecare-webapp](https://github.com/MoleCare/molecare-webapp). `molecare-ml` is image CNNs — unused.
+Data for `skincare-qa` still comes from [molecare-mcp](https://github.com/MoleCare/molecare-mcp) + `molecare-webapp` (private). `molecare-ml` is image CNNs — unused.
 
 ## Serve (cloud or laptop)
 
@@ -127,7 +127,7 @@ the large folder.
 
 ## Contributors
 
-Thank you to everyone who has helped skincare-qa.
+Thank you to everyone who has helped molecare-skin-llm.
 
 <!-- readme: contributors,bots/- -start -->
 <table>
@@ -154,5 +154,5 @@ Thank you to everyone who has helped skincare-qa.
 
 The list is filled by [Contributors](./.github/workflows/contributors.yml) from
 GitHub commits, bots omitted — never hand-maintained, because a stale list is
-worse than none. [Contributor graph](https://github.com/MoleCare/skincare-qa/graphs/contributors) ·
-[good first issue](https://github.com/MoleCare/skincare-qa/labels/good%20first%20issue)
+worse than none. [Contributor graph](https://github.com/MoleCare/molecare-skin-llm/graphs/contributors) ·
+[good first issue](https://github.com/MoleCare/molecare-skin-llm/labels/good%20first%20issue)
